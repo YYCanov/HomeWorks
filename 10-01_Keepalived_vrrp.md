@@ -33,8 +33,8 @@ virtual_ipaddress {
 }
 }
 ```
-<img src = "pics/1001/instance1_status.jpg" width = 80%>
-<img src = "pics/1001/instance1_ip_a.jpg" width = 80%>
+<img src = "pics/1001/instance1_status.jpg" width = 100%>
+<img src = "pics/1001/instance1_ip_a.jpg" width = 100%>
 
 
  
