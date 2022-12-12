@@ -11,7 +11,7 @@
 
 ---
 
-***instance 1:***
+<ins>*instance 1:*<ins>
 
 ```ini
 vrrp_instance failover_test {
@@ -33,10 +33,36 @@ virtual_ipaddress {
 }
 }
 ```
-<img src = "pics/1001/instance1_status.jpg" width = 100%>
-<img src = "pics/1001/instance1_ip_a.jpg" width = 100%>
+<img src = "pics/1001/instance1_status.png" width = 100%>
+<img src = "pics/1001/instance1_ip_a.png" width = 100%>
 
 
+<ins>*instance 2:*<ins>
+
+```ini
+vrrp_instance failover_test {
+state BACKUP
+interface enp0s8
+virtual_router_id 10
+priority 110
+advert_int 4
+authentication {
+auth_type AH
+auth_pass 1111
+}
+unicast_src_ip 192.168.0.2
+unicast_peer {
+192.168.0.1
+}
+virtual_ipaddress {
+192.168.0.50 dev enp0s8 label enp0s8:vip
+}
+}
+```
+<img src = "pics/1001/instance2_status.png" width = 100%>
+<img src = "pics/1001/instance2_ip_a.png" width = 100%>
+
+---
  
 ### Задание 2*.
 
@@ -48,3 +74,11 @@ virtual_ipaddress {
 - найдите пакеты ICMP, в которых будет отображён процесс изменения MAC адреса одной ноды на другой. 
 
  *Пришлите скриншот до и после выключения интерфейса из Wireshark.*
+ 
+---
+
+<img src = "pics/1001/wireshark1.png" width = 100%> 
+<img src = "pics/1001/wireshark2.png" width = 100%> 
+
+<ins>*C arping наглядно видно также:*<ins>
+<img src = "pics/1001/arping.png" width = 100%> 
