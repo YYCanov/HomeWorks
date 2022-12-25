@@ -101,7 +101,7 @@ logging {
 
 Пришлите конфигурацию DRBD сервиса - .res ресурсов для каждой ноды.
 
-*mysql.res*
+`mysql.res`
 ```
 resource mysql {
  protocol C;
@@ -129,7 +129,7 @@ resource mysql {
  }
 }
 ```
-*www.res*
+`www.res`
 ```
 resource www {
  protocol C;
