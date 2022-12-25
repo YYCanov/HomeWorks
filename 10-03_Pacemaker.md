@@ -92,7 +92,7 @@ logging {
 <img src = "pics/1003/WebUINode1.png" width = 80%>
 <img src = "pics/1003/WebUINode2.png" width = 80%>
 
-[бэкап конфигурации pacemaker](file:///files/1003/pacemaker.bak.tar.bz2)
+[бэкап конфигурации pacemaker](file://files/1003/pacemaker.bak.tar.bz2)
 
 ---
 
