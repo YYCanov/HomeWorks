@@ -24,7 +24,7 @@ Pacemaker — это программное обеспечение для упр
 > Изоляция узлов, также известное как STONITH (аббревиатура от Shoot The Other Node In The Head), — это возможность гарантировать, что узел не сможет запустить службу. Это достигается с помощью изолирующих устройств, таких как интеллектуальные переключатели питания, которые отключают питание цели, или интеллектуальные сетевые переключатели, которые ограничивают доступ цели к локальной сети. 
 > * Pacemaker представляет изолирующие устройства как особый класс ресурсов.
 
-<img src = "pics/1003/Peacemaker.png" width = 80%>
+<img src = "pics/1003/Peacemaker.png" width = 60%>
 ---
 
 ### Задание 2
@@ -86,11 +86,13 @@ logging {
 }
 ```
 
-<img src = "pics/1003/node1_status.png" width = 100%>
-<img src = "pics/1003/node2_status.png" width = 100%>
-<img src = "pics/1003/WebUIClusterMan.png" width = 100%>
-<img src = "pics/1003/WebUINode1.png" width = 100%>
-<img src = "pics/1003/WebUINode2.png" width = 100%>
+<img src = "pics/1003/node1_status.png" width = 70%>
+<img src = "pics/1003/node2_status.png" width = 70%>
+<img src = "pics/1003/WebUIClusterMan.png" width = 80%>
+<img src = "pics/1003/WebUINode1.png" width = 80%>
+<img src = "pics/1003/WebUINode2.png" width = 80%>
+
+[бэкап конфигурации pacemaker](file:///files/1003/pacemaker.bak.tar.bz2)
 
 ---
 
