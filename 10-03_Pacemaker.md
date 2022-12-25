@@ -24,7 +24,7 @@ Pacemaker — это программное обеспечение для упр
 > Изоляция узлов, также известное как STONITH (аббревиатура от Shoot The Other Node In The Head), — это возможность гарантировать, что узел не сможет запустить службу. Это достигается с помощью изолирующих устройств, таких как интеллектуальные переключатели питания, которые отключают питание цели, или интеллектуальные сетевые переключатели, которые ограничивают доступ цели к локальной сети. 
 > * Pacemaker представляет изолирующие устройства как особый класс ресурсов.
 
-![Схема](/pics/1003/Peacemaker.png "Peacemaker")
+<img src = "pics/1003/Peacemaker.png" width = 80%>
 ---
 
 ### Задание 2
@@ -48,25 +48,51 @@ Pacemaker — это программное обеспечение для упр
 Соберите модель, состоящую из двух виртуальных машин. Установите pacemaker, corosync, pcs. Настройте HA кластер.
 Пришлите конфигурации сервисов для каждой ноды, конфигурационный файл corosync и бэкап конфигурации pacemaker при помощи команды pcs config backup filename.
 
-*Приведите ответ в свободной форме.*
+*corosync.conf for node1 and node2*
+```ini
+totem {
+    version: 2
+    cluster_name: mycluster
+    transport: knet
+    crypto_cipher: aes256
+    crypto_hash: sha256
+}
 
-1. `Заполните здесь этапы выполнения, если требуется ....`
-2. `Заполните здесь этапы выполнения, если требуется ....`
-3. `Заполните здесь этапы выполнения, если требуется ....`
-4. `Заполните здесь этапы выполнения, если требуется ....`
-5. `Заполните здесь этапы выполнения, если требуется ....`
-6. 
+nodelist {
+    node {
+        ring0_addr: node1
+        name: node1
+        nodeid: 1
+    }
 
+    node {
+        ring0_addr: node2
+        name: node2
+        nodeid: 2
+    }
+}
+
+quorum {
+    provider: corosync_votequorum
+    two_node: 1
+    expected_votes: 2
+}
+
+logging {
+    to_logfile: yes
+    logfile: /var/log/corosync/corosync.log
+    to_syslog: yes
+    timestamp: on
+}
 ```
-Поле для вставки кода...
-....
-....
-....
-....
-```
 
-`При необходимости прикрепитe сюда скриншоты
-![Название скриншота](ссылка на скриншот)`
+<img src = "pics/1003/node1_status.png" width = 100%>
+<img src = "pics/1003/node2_status.png" width = 100%>
+<img src = "pics/1003/WebUIClusterMan.png" width = 100%>
+<img src = "pics/1003/WebUINode1.png" width = 100%>
+<img src = "pics/1003/WebUINode2.png" width = 100%>
+
+---
 
 ### Задание 4*
 Установите и настройте DRBD сервис для настроенного кластера.
