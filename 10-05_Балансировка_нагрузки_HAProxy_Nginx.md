@@ -48,6 +48,8 @@
 
 *Приведите ответ в свободной форме*
 
+<img src = "pics/1005/service_haproxy.png" width = 50%>
+
 ---
 
 
@@ -56,7 +58,7 @@
 
 *Приведите ответ в свободной форме*
 
-
+<img src = "pics/1005/service_nginx.png" width = 50%>
 
 ---
 
