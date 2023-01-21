@@ -73,8 +73,7 @@ curl http://localhost:8088/ping
 
 *Приведите скриншот получившейся конфигурации*
 
-Для закрепления материала был построен тестовая сеть из 4х серверов:
-
+Для закрепления материала был построен тестовая сеть из 4х серверов:  
 <img src = "pics/1005/TestNetwork.png" width = 50%>
 
 на web серверах размещен **file.php** :
@@ -153,8 +152,7 @@ server {
       }
 }
 ```
-Тестирование работы балансировщика:
-
+Тестирование работы балансировщика:  
 <img src = "pics/1005/terminalDemoNginx.png" width = 50%>
 <img src = "pics/1005/webdemoNginx.png" width = 80%>
 
@@ -217,9 +215,8 @@ listen stats
         stats refresh   15s
         stats realm     Haproxy\ Statistics
 ```
-Haproxy Statistics:
-
-<img src = "pics/1005/HAProxyStat.png" width = 50%>
+Haproxy Statistics:  
+<img src = "pics/1005/HAProxyStat.png" width = 80%>
 
 Тестирование работы балансировщика:  
 <img src = "pics/1005/terminalDemoHAProxy.png" width = 50%>
