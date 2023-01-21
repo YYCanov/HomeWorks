@@ -73,6 +73,91 @@ curl http://localhost:8088/ping
 
 *Приведите скриншот получившейся конфигурации*
 
+Для закрепления материала был построен тестовая сеть из 4х серверов:
+
+<img src = "pics/1005/TestNetwork.png" width = 50%>
+
+на каждой машине размещен **file.php** :
+```php
+<?php
+header('Content-Type: text/plain');
+echo "Server IP: ".$_SERVER['SERVER_ADDR'];
+echo "\nClient IP: ".$_SERVER['REMOTE_ADDR'];
+echo "\nHost name: ";
+echo gethostname();
+echo "\n";
+?>
+```
+и **index.html** :
+```html
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to nginx!</title>
+<style>
+    body {
+        width: 35em;
+        margin: 0 auto;
+        font-family: Tahoma, Verdana, Arial, sans-serif;
+    }
+</style>
+</head>
+<body>
+<h1>Welcome to nginx!</h1>
+<p><b>nginx2</b> is configured correctly</p>
+</body>
+</html>
+```
+ 
+ В этом задании дополнительно был настроен простейший вариант балансировщика nginx.
+ Конфигурация балансировщика nginx на 192.168.64.5 :
+
+**/etc/nginx/nginx.conf**
+```ini
+user www-data;
+worker_processes auto;
+pid /run/nginx.pid;
+include /etc/nginx/modules-enabled/*.conf;
+
+events {
+        worker_connections 768;
+        multi_accept off;
+}
+
+
+http {
+   upstream myapp{
+      server 192.168.64.6:8080;
+      server 192.168.64.7:8088;
+   }
+  include /etc/nginx/sites-enabled/*;
+}
+```
+
+**/etc/nginx/sites-enabled/default**
+```ini
+server {
+      listen 80;
+
+      server_name mydomain.com;
+
+      location / {
+
+          proxy_pass http://myapp;
+
+
+          proxy_redirect off;
+          proxy_http_version 1.1;
+          proxy_set_header Upgrade $http_upgrade;
+          proxy_set_header Connection "upgrade";
+      }
+}
+```
+Тестирование работы балансировщика:
+
+<img src = "pics/1005/terminalDemoNginx.png" width = 50%>
+<img src = "pics/1005/webdemoNginx.png" width = 50%>
+
 
 ---
 
@@ -86,3 +171,57 @@ curl http://localhost:8080/
 "haproxy is configured correctly".
 
 *Приведите скриншот получившейся конфигурации*
+
+**/etc/haproxy/haproxy.cfg**
+```ini
+global
+        log /dev/log    local0
+        log /dev/log    local1 notice
+        chroot /var/lib/haproxy
+        stats socket /run/haproxy/admin.sock mode 660 level admin expose-fd listeners
+        stats timeout 30s
+        user haproxy
+        group haproxy
+        daemon
+
+defaults
+        log     global
+        mode    http
+        option  httplog
+        option  dontlognull
+        timeout connect 5000
+        timeout client  50000
+        timeout server  50000
+        errorfile 400 /etc/haproxy/errors/400.http
+        errorfile 403 /etc/haproxy/errors/403.http
+        errorfile 408 /etc/haproxy/errors/408.http
+        errorfile 500 /etc/haproxy/errors/500.http
+        errorfile 502 /etc/haproxy/errors/502.http
+        errorfile 503 /etc/haproxy/errors/503.http
+        errorfile 504 /etc/haproxy/errors/504.http
+
+frontend example
+        bind *:80
+        default_backend web_servers
+
+backend web_servers
+        balance roundrobin
+        server nginx1 192.168.64.6:8080 check
+        server nginx2 192.168.64.7:8088 check
+
+listen stats 
+        bind            :::888
+        mode            http
+        stats           enable
+        stats uri       /local
+        stats refresh   15s
+        stats realm     Haproxy\ Statistics
+```
+Haproxy Statistics:
+
+<img src = "pics/1005/HAProxyStat.png" width = 50%>
+
+Тестирование работы балансировщика:
+<img src = "pics/1005/terminalDemoHAProxy.png" width = 50%>
+<img src = "pics/1005/webdemoHAProxy.png" width = 50%>
+
