@@ -221,7 +221,7 @@ Haproxy Statistics:
 
 <img src = "pics/1005/HAProxyStat.png" width = 50%>
 
-Тестирование работы балансировщика:
+Тестирование работы балансировщика:  
 <img src = "pics/1005/terminalDemoHAProxy.png" width = 50%>
 <img src = "pics/1005/webdemoHAProxy.png" width = 80%>
 
