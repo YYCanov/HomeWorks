@@ -77,7 +77,7 @@ curl http://localhost:8088/ping
 
 <img src = "pics/1005/TestNetwork.png" width = 50%>
 
-на каждой машине размещен **file.php** :
+на web серверах размещен **file.php** :
 ```php
 <?php
 header('Content-Type: text/plain');
