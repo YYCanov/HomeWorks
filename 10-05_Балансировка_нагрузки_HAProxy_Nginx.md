@@ -156,7 +156,7 @@ server {
 Тестирование работы балансировщика:
 
 <img src = "pics/1005/terminalDemoNginx.png" width = 50%>
-<img src = "pics/1005/webdemoNginx.png" width = 50%>
+<img src = "pics/1005/webdemoNginx.png" width = 70%>
 
 
 ---
@@ -223,5 +223,5 @@ Haproxy Statistics:
 
 Тестирование работы балансировщика:
 <img src = "pics/1005/terminalDemoHAProxy.png" width = 50%>
-<img src = "pics/1005/webdemoHAProxy.png" width = 50%>
+<img src = "pics/1005/webdemoHAProxy.png" width = 70%>
 
