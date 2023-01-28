@@ -62,9 +62,9 @@
 * Автоматизированность — как правило, запускают в ночное время, тк создает дополнительную нагрузку на сервер.
 * Отказоустойчивость — не обеспечивает резервирование всей инфраструктуры, только программного обеспечения  
 	
-	<ins>P.S.<ins/> RPO — Recovery Point Objective или точка отката — момент времени, на который будут восстановлены данные,
+	<ins>P.S.</ins> RPO — Recovery Point Objective или точка отката — момент времени, на который будут восстановлены данные,
 					RTO — Recovery Time Objective – время, требуемое на восстановление из резервной копии.
-<img src = "pics/1006/RPO_RTO.png" width = 30%>
+<img src = "pics/1006/RPO_RTO.png" width = 50%>
 
 *Компании представляющие решения на рынке DRaas:*
 [De Novo](https://denovo.ua/ru/baas), [Veeam](https://www.veeam.com/ru/cloud-service-providers.html?ad=menu-solutions), [DEAC](https://www.deac.eu/novosti/blog/baas-blog/ru/), etc.
