@@ -119,9 +119,10 @@
 * Стоимость реализации  
 <img src = "pics/1006/baas.png" width = 50%>  
 
-План резервирования: 
-Системный диск:										Диск данных:
-<img src = "pics/1006/sysdisk.png" width = 30%>  <img src = "pics/1006/datadisk.png" width = 30%> 
+План резервирования:  
+
+Системный диск:										Диск данных:  
+<img src = "pics/1006/sysdisk.png" width = 15%>  <img src = "pics/1006/datadisk.png" width = 30%> 
 
 
 
