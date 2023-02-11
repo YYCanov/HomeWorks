@@ -121,8 +121,8 @@
 
 План резервирования:  
 
-Системный диск:										Диск данных:  
-<img src = "pics/1006/sysdisk.png" width = 15%>  <img src = "pics/1006/datadisk.png" width = 30%> 
+Системный диск:	        Диск данных:  
+<img src = "pics/1006/sysdisk.png" width = 20%>       <img src = "pics/1006/datadisk.png" width = 35%> 
 
 
 
