@@ -22,7 +22,7 @@
 
 *Приведите скриншот systemctl status memcached, где будет видно, что memcached запущен.*
 
-<img src="pics/1102/memcached_service.png" alt="memcached_service" style="zoom:80%;" /><img src="pics/1102/memcached_service2.png" alt="memcached_service2" style="zoom:50%;" />
+<img src="pics/1102/memcached_service.png" alt="memcached_service" style="zoom:80%;" /><img src="pics/1102/memcached_service2.png" alt="memcached_service2" style="zoom: 30%;" />
 
 ------
 
