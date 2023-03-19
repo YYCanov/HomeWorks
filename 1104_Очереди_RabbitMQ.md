@@ -8,6 +8,8 @@
 
 *Итогом выполнения домашнего задания будет приложенный скриншот веб-интерфейса RabbitMQ.*
 
+<img src="pics/1104/queue_rabbit.png" alt="queue_rabbit" style="zoom:67%;" />
+
 ------
 
 ### Задание 2. Отправка и получение сообщений
@@ -26,9 +28,9 @@ $ pip install pika
 
 Для закрепления материала можете попробовать модифицировать скрипты, чтобы поменять название очереди и отправляемое сообщение.
 
-<img src="pics/1004/queue_received2.png" alt="queue_received2" style="zoom:80%;" />
+<img src="pics/1104/queue_received2.png" alt="queue_received2" style="zoom:80%;" />
 
-<img src="pics/1004/queue_rabbit.png" alt="queue_rabbit" style="zoom:67%;" />
+<img src="pics/1104/queue_rabbit.png" alt="queue_rabbit" style="zoom:67%;" />
 
 ------
 
