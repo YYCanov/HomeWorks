@@ -58,19 +58,31 @@ $ cat /etc/hosts
 $ rabbitmqctl cluster_status
 ```
 
+<img src="pics/1104/rmq_cluster_web.png" alt="rmq_cluster_web" style="zoom:50%;" />
+
+<img src="pics/1104/rmq_web_policies.png" alt="rmq_web_policies" style="zoom:50%;" />
+
+<img src="pics/1104/cluster_status_rmq01.png" alt="cluster_status_rmq01" style="zoom:50%;" /><img src="pics/1104/cluster_status_rmq02.png" alt="cluster_status_rmq02" style="zoom:50%;" />
+
 Для закрепления материала снова запустите скрипт producer.py и приложите скриншот выполнения команды на каждой из нод:
 
 ```
 $ rabbitmqadmin get queue='hello'
 ```
 
+<img src="pics/1104/queue_rmq01.png" alt="queue_rmq01" style="zoom:50%;" />
+
+<img src="pics/1104/queue_rmq02.png" alt="queue_rmq02" style="zoom:50%;" />
+
 После чего попробуйте отключить одну из нод, желательно ту, к которой подключались из скрипта, затем поправьте параметры подключения в скрипте consumer.py на вторую ноду и запустите его.
 
 *Приложите скриншот результата работы второго скрипта.*
 
-## Дополнительные задания (со звёздочкой*)
+<img src="pics/1104/half_cluster_tes.png" alt="half_cluster_tes" style="zoom: 67%;" />
 
-Эти задания дополнительные, то есть не обязательные к выполнению, и никак не повлияют на получение вами зачёта по этому домашнему заданию. Вы можете их выполнить, если хотите глубже шире разобраться в материале.
+[consumer.py](files/1104/consumer.py)
+
+
 
 ### * Задание 4. Ansible playbook
 
