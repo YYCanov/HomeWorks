@@ -80,7 +80,7 @@ $ rabbitmqadmin get queue='hello'
 
 <img src="pics/1104/half_cluster_tes.png" alt="half_cluster_tes" style="zoom: 67%;" />
 
-[consumer.py](files/1104/consumer.py)
+[producer.py](files/1104/producer.py), [consumer.py](files/1104/consumer.py)
 
 
 
