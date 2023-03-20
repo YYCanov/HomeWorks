@@ -30,7 +30,7 @@ $ pip install pika
 
 <img src="pics/1104/queue_received2.png" alt="queue_received2" style="zoom:80%;" />
 
-<img src="pics/1104/queue_rabbit.png" alt="queue_rabbit" style="zoom:67%;" />
+<img src="pics/1104/queue_rabbit.png" alt="queue_rabbit" style="zoom: 50%;" />
 
 ------
 
@@ -62,7 +62,7 @@ $ rabbitmqctl cluster_status
 
 <img src="pics/1104/rmq_web_policies.png" alt="rmq_web_policies" style="zoom:50%;" />
 
-<img src="pics/1104/cluster_status_rmq01.png" alt="cluster_status_rmq01" style="zoom:50%;" /><img src="pics/1104/cluster_status_rmq02.png" alt="cluster_status_rmq02" style="zoom:50%;" />
+<img src="pics/1104/cluster_status_rmq01.png" alt="cluster_status_rmq01" style="zoom: 33%;" /><img src="pics/1104/cluster_status_rmq02.png" alt="cluster_status_rmq02" style="zoom: 33%;" />
 
 Для закрепления материала снова запустите скрипт producer.py и приложите скриншот выполнения команды на каждой из нод:
 
