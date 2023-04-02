@@ -10,9 +10,15 @@
 
 1.3. Выполните запрос на получение списка пользователей в базе данных. (скриншот)
 
+<img src="pics\1202\MySql_user_DBeaver.png" alt="MySql_user_DBeaver" style="zoom:50%;" />
+
 1.4. Дайте все права для пользователя sys_temp.
 
 1.5. Выполните запрос на получение списка прав для пользователя sys_temp. (скриншот)
+
+<img src="pics\1202\DBeaver_UserPriv.png" alt="DBeaver_UserPriv" style="zoom:50%;" />
+
+<img src="pics\1202\Show_grants_DBeaver.png" alt="Show_grants_DBeaver" style="zoom:50%;" />
 
 1.6. Переподключитесь к базе данных от имени sys_temp.
 
@@ -28,6 +34,8 @@ ALTER USER 'sys_test'@'localhost' IDENTIFIED WITH mysql_native_password BY 'pass
 
 1.8. При работе в IDE сформируйте ER-диаграмму получившейся базы данных. При работе в командной строке используйте команду для получения всех таблиц базы данных. (скриншот)
 
+<img src="pics\1202\ERD.png" alt="ERD" style="zoom:50%;" />
+
 *Результатом работы должны быть скриншоты обозначенных заданий, а также простыня со всеми запросами.*
 
 ### Задание 2
@@ -39,13 +47,30 @@ ALTER USER 'sys_test'@'localhost' IDENTIFIED WITH mysql_native_password BY 'pass
 customer         | customer_id
 ```
 
-## Дополнительные задания (со звёздочкой*)
-
-Эти задания дополнительные, то есть не обязательные к выполнению, и никак не повлияют на получение вами зачёта по этому домашнему заданию. Вы можете их выполнить, если хотите глубже шире разобраться в материале.
+| Table  Name   | Id Name      |
+| ------------- | ------------ |
+| _language     | language_id  |
+| actor         | actor_id     |
+| address       | address_id   |
+| category      | category_id  |
+| city          | Column1      |
+| country       | Column1      |
+| customer      | customer_id  |
+| film          | film_id      |
+| film_actor    | actor_id     |
+| film_category | film_id      |
+| film_text     | film_id      |
+| inventory     | inventory_id |
+| payment       | payment_id   |
+| rental        | rental_id    |
+| staff         | staff_id     |
+| store         | store_id     |
 
 ### Задание 3*
 
 3.1. Уберите у пользователя sys_temp права на внесение, изменение и удаление данных из базы sakila.
+
+
 
 3.2. Выполните запрос на получение списка прав для пользователя sys_temp. (скриншот)
 
