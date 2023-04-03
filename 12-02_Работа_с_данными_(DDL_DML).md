@@ -70,8 +70,35 @@ customer         | customer_id
 
 3.1. Уберите у пользователя sys_temp права на внесение, изменение и удаление данных из базы sakila.
 
+mysql> REVOKE ALL PRIVILEGES ON *.* FROM 'sys_temp'@'%';
+Query OK, 0 rows affected (0.01 sec)
 
+mysql> flush privileges;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> GRANT ALL PRIVILEGES ON mysql.* TO 'sys_temp'@'%';
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> GRANT ALL PRIVILEGES ON sys.* TO 'sys_temp'@'%';
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> GRANT SELECT ON sakila.* TO 'sys_temp'@'%';
+Query OK, 0 rows affected (0.02 sec)
+
+
+
+4 rows in set (0.00 sec)
 
 3.2. Выполните запрос на получение списка прав для пользователя sys_temp. (скриншот)
+
+mysql> SHOW GRANTS FOR 'sys_temp'@'%';
++------------------------------------------------------------------------------+
+| Grants for sys_temp@%                                                       |
++------------------------------------------------------------------------------+
+| GRANT USAGE ON *.* TO `sys_temp`@`%`                             |
+| GRANT ALL PRIVILEGES ON `mysql`.* TO `sys_temp`@`%` |
+| GRANT SELECT ON `sakila`.* TO `sys_temp`@`%`              |
+| GRANT ALL PRIVILEGES ON `sys`.* TO `sys_temp`@`%`     |
++-------------------------------------------------------------------------------+
 
 *Результатом работы должны быть скриншоты обозначенных заданий, а также простыня со всеми запросами.*
