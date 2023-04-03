@@ -72,19 +72,19 @@ customer         | customer_id
 
 3.1. Уберите у пользователя sys_temp права на внесение, изменение и удаление данных из базы sakila.
 
-mysql> REVOKE ALL PRIVILEGES ON *.* FROM 'sys_temp'@'%';
+mysql> REVOKE ALL PRIVILEGES ON *.* FROM 'sys_temp'@'%';  
 Query OK, 0 rows affected (0.01 sec)
 
-mysql> flush privileges;
+mysql> flush privileges;  
 Query OK, 0 rows affected (0.01 sec)
 
-mysql> GRANT ALL PRIVILEGES ON mysql.* TO 'sys_temp'@'%';
+mysql> GRANT ALL PRIVILEGES ON mysql.* TO 'sys_temp'@'%';  
 Query OK, 0 rows affected (0.01 sec)
 
-mysql> GRANT ALL PRIVILEGES ON sys.* TO 'sys_temp'@'%';
+mysql> GRANT ALL PRIVILEGES ON sys.* TO 'sys_temp'@'%';  
 Query OK, 0 rows affected (0.01 sec)
 
-mysql> GRANT SELECT ON sakila.* TO 'sys_temp'@'%';
+mysql> GRANT SELECT ON sakila.* TO 'sys_temp'@'%';  
 Query OK, 0 rows affected (0.02 sec)
 
 3.2. Выполните запрос на получение списка прав для пользователя sys_temp. (скриншот)
