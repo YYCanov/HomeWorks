@@ -38,7 +38,7 @@ ALTER USER 'sys_test'@'localhost' IDENTIFIED WITH mysql_native_password BY 'pass
 
 *Результатом работы должны быть скриншоты обозначенных заданий, а также простыня со всеми запросами.*
 
-[Простыня с запросами](files\1202\query_list.txt) 
+[Простыня с запросами](files/1202/query_list.txt) 
 
 ### Задание 2
 
@@ -104,7 +104,7 @@ mysql> SHOW GRANTS FOR 'sys_temp'@'%';
 
 *Результатом работы должны быть скриншоты обозначенных заданий, а также простыня со всеми запросами.*
 
-[Простыня с запросами](files\1202\query_list.txt) 
+[Простыня с запросами](files/1202/query_list.txt) 
 
 
 
