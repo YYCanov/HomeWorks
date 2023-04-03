@@ -55,8 +55,8 @@ customer         | customer_id
 | actor         | actor_id     |
 | address       | address_id   |
 | category      | category_id  |
-| city          | Column1      |
-| country       | Column1      |
+| city          | city_id      |
+| country       | country_id   |
 | customer      | customer_id  |
 | film          | film_id      |
 | film_actor    | actor_id     |
