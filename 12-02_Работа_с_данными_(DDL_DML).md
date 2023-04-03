@@ -10,15 +10,15 @@
 
 1.3. Выполните запрос на получение списка пользователей в базе данных. (скриншот)
 
-<img src="pics\1202\MySql_user_DBeaver.png" alt="MySql_user_DBeaver" style="zoom:50%;" />
+<img src="pics\1202\1202_SELECT_USER.jpg" alt="SELECT_USER" style="zoom:90%;" />
 
 1.4. Дайте все права для пользователя sys_temp.
 
 1.5. Выполните запрос на получение списка прав для пользователя sys_temp. (скриншот)
 
-<img src="pics\1202\DBeaver_UserPriv.png" alt="DBeaver_UserPriv" style="zoom:50%;" />
+<img src="pics\1202\1202_SELECT_ALL.jpg" alt="1202_SELECT_ALL" style="zoom:90%;" />
 
-<img src="pics\1202\Show_grants_DBeaver.png" alt="Show_grants_DBeaver" style="zoom:50%;" />
+<img src="pics\1202\1202_SHOW_GRANTS_4_SYS_TEMP.jpg" alt="1202_SHOW_GRANTS_4_SYS_TEMP" style="zoom:90%;" />
 
 1.6. Переподключитесь к базе данных от имени sys_temp.
 
@@ -37,6 +37,8 @@ ALTER USER 'sys_test'@'localhost' IDENTIFIED WITH mysql_native_password BY 'pass
 <img src="pics\1202\ERD.png" alt="ERD" style="zoom:50%;" />
 
 *Результатом работы должны быть скриншоты обозначенных заданий, а также простыня со всеми запросами.*
+
+[Простыня с запросами](files\1202\query_list.txt) 
 
 ### Задание 2
 
@@ -85,20 +87,24 @@ Query OK, 0 rows affected (0.01 sec)
 mysql> GRANT SELECT ON sakila.* TO 'sys_temp'@'%';
 Query OK, 0 rows affected (0.02 sec)
 
-
-
-4 rows in set (0.00 sec)
-
 3.2. Выполните запрос на получение списка прав для пользователя sys_temp. (скриншот)
 
-mysql> SHOW GRANTS FOR 'sys_temp'@'%';
-+------------------------------------------------------------------------------+  
-| Grants for sys_temp@%                                                       |  
-+------------------------------------------------------------------------------+  
-| GRANT USAGE ON *.* TO `sys_temp`@`%`                             |  
+mysql> SHOW GRANTS FOR 'sys_temp'@'%';  
+
+```
++-----------------------------------------------------+  
+| Grants for sys_temp@%                               |  
++-----------------------------------------------------+
+| GRANT USAGE ON *.* TO `sys_temp`@`%`                |  
 | GRANT ALL PRIVILEGES ON `mysql`.* TO `sys_temp`@`%` |  
-| GRANT SELECT ON `sakila`.* TO `sys_temp`@`%`              |  
-| GRANT ALL PRIVILEGES ON `sys`.* TO `sys_temp`@`%`     |  
-+-------------------------------------------------------------------------------+      
+| GRANT SELECT ON `sakila`.* TO `sys_temp`@`%`        |  
+| GRANT ALL PRIVILEGES ON `sys`.* TO `sys_temp`@`%`   |  
++-----------------------------------------------------+      
+```
 
 *Результатом работы должны быть скриншоты обозначенных заданий, а также простыня со всеми запросами.*
+
+[Простыня с запросами](files\1202\query_list.txt) 
+
+
+
