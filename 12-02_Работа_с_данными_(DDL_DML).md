@@ -68,6 +68,8 @@ customer         | customer_id
 | staff         | staff_id              |
 | store         | store_id              |
 
+<img src="pics\1202\1202_sakila_primary_keys.jpg" alt="1202_sakila_primary_keys" style="zoom:80%;" />
+
 ### Задание 3*
 
 3.1. Уберите у пользователя sys_temp права на внесение, изменение и удаление данных из базы sakila.
