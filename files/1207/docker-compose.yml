@@ -1,0 +1,30 @@
+version: "3"
+services:
+  db_one:
+    image: mysql
+    container_name: db_one
+    ports:
+      - 3001:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=pass
+    networks:
+      db_network:
+        ipv4_address: 172.20.0.10
+    restart: always 
+  db_two:
+    image: mysql 
+    container_name: db_two 
+    ports:
+      - 3002:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=pass
+    networks:
+      db_network:
+        ipv4_address: 172.20.0.11
+    restart: always 
+networks:
+  db_network:
+    driver: bridge 
+    ipam:
+      config:
+        - subnet: 172.20.0.0/24
