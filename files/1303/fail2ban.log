@@ -1,0 +1,1165 @@
+2023-05-14 00:50:24,239 fail2ban.server         [439]: INFO    rollover performed on /var/log/fail2ban.log
+2023-05-14 14:18:48,741 fail2ban.server         [439]: INFO    Shutdown in progress...
+2023-05-14 14:18:48,743 fail2ban.observer       [439]: INFO    Observer stop ... try to end queue 5 seconds
+2023-05-14 14:18:48,765 fail2ban.observer       [439]: INFO    Observer stopped, 0 events remaining.
+2023-05-14 14:18:48,806 fail2ban.server         [439]: INFO    Stopping all jails
+2023-05-14 14:18:48,806 fail2ban.filter         [439]: INFO    Removed logfile: '/var/log/auth.log'
+2023-05-14 14:18:48,887 fail2ban.actions        [439]: NOTICE  [sshd] Flush ticket(s) with iptables-multiport
+2023-05-14 14:18:49,431 fail2ban.jail           [439]: INFO    Jail 'sshd' stopped
+2023-05-14 14:18:49,433 fail2ban.database       [439]: INFO    Connection to database closed.
+2023-05-14 14:18:49,434 fail2ban.server         [439]: INFO    Exiting Fail2ban
+2023-05-14 14:18:49,483 fail2ban.server         [1074]: INFO    --------------------------------------------------
+2023-05-14 14:18:49,483 fail2ban.server         [1074]: INFO    Starting Fail2ban v0.11.2
+2023-05-14 14:18:49,484 fail2ban.observer       [1074]: INFO    Observer start...
+2023-05-14 14:18:49,486 fail2ban.database       [1074]: INFO    Connected to fail2ban persistent database '/var/lib/fail2ban/fail2ban.sqlite3'
+2023-05-14 14:18:49,486 fail2ban.jail           [1074]: INFO    Creating new jail 'sshd'
+2023-05-14 14:18:49,490 fail2ban.jail           [1074]: INFO    Jail 'sshd' uses pyinotify {}
+2023-05-14 14:18:49,491 fail2ban.jail           [1074]: INFO    Initiated 'pyinotify' backend
+2023-05-14 14:18:49,491 fail2ban.filter         [1074]: INFO      maxLines: 1
+2023-05-14 14:18:49,498 fail2ban.filter         [1074]: INFO      maxRetry: 5
+2023-05-14 14:18:49,498 fail2ban.filter         [1074]: INFO      findtime: 600
+2023-05-14 14:18:49,498 fail2ban.actions        [1074]: INFO      banTime: 600
+2023-05-14 14:18:49,498 fail2ban.filter         [1074]: INFO      encoding: UTF-8
+2023-05-14 14:18:49,498 fail2ban.filter         [1074]: INFO    Added logfile: '/var/log/auth.log' (pos = 2630, hash = b7c52f0df1652af6dd1cef1d663468cd72896b88)
+2023-05-14 14:18:49,499 fail2ban.jail           [1074]: INFO    Jail 'sshd' started
+2023-05-14 14:52:17,194 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 14:52:17
+2023-05-14 14:52:20,743 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 14:52:20
+2023-05-14 14:52:27,164 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 14:52:27
+2023-05-14 14:52:36,815 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 14:52:36
+2023-05-14 14:52:40,725 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 14:52:40
+2023-05-14 14:52:40,744 fail2ban.actions        [1074]: NOTICE  [sshd] Ban 192.168.64.30
+2023-05-14 14:52:40,747 fail2ban.utils          [1074]: ERROR   ffffbb95f710 -- exec: iptables -w -N f2b-sshd
+iptables -w -A f2b-sshd -j RETURN
+iptables -w -I INPUT -p tcp -m multiport --dports ssh -j f2b-sshd
+2023-05-14 14:52:40,747 fail2ban.utils          [1074]: ERROR   ffffbb95f710 -- stderr: '/bin/sh: 1: iptables: not found'
+2023-05-14 14:52:40,747 fail2ban.utils          [1074]: ERROR   ffffbb95f710 -- stderr: '/bin/sh: 2: iptables: not found'
+2023-05-14 14:52:40,747 fail2ban.utils          [1074]: ERROR   ffffbb95f710 -- stderr: '/bin/sh: 3: iptables: not found'
+2023-05-14 14:52:40,747 fail2ban.utils          [1074]: ERROR   ffffbb95f710 -- returned 127
+2023-05-14 14:52:40,747 fail2ban.utils          [1074]: INFO    HINT on 127: "Command not found".  Make sure that all commands in 'iptables -w -N f2b-sshd\niptables -w -A f2b-sshd -j RETURN\niptables -w -I INPUT -p tcp -m multiport --dports ssh -j f2b-sshd' are in the PATH of fail2ban-server process (grep -a PATH= /proc/`pidof -x fail2ban-server`/environ). You may want to start "fail2ban-server -f" separately, initiate it with "fail2ban-client reload" in another shell session and observe if additional informative error messages appear in the terminals.
+2023-05-14 14:52:40,747 fail2ban.actions        [1074]: ERROR   Failed to execute ban jail 'sshd' action 'iptables-multiport' info 'ActionInfo({'ip': '192.168.64.30', 'family': 'inet4', 'fid': <function Actions.ActionInfo.<lambda> at 0xffffbb0bfb80>, 'raw-ticket': <function Actions.ActionInfo.<lambda> at 0xffffbb0c0280>})': Error starting action Jail('sshd')/iptables-multiport: 'Script error'
+2023-05-14 15:02:40,220 fail2ban.actions        [1074]: NOTICE  [sshd] Unban 192.168.64.30
+2023-05-14 15:44:22,373 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:22
+2023-05-14 15:44:22,377 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:22
+2023-05-14 15:44:22,378 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:22
+2023-05-14 15:44:22,378 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:22
+2023-05-14 15:44:22,379 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:22
+2023-05-14 15:44:22,381 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:22
+2023-05-14 15:44:22,381 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:22
+2023-05-14 15:44:22,382 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:22
+2023-05-14 15:44:22,382 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:22
+2023-05-14 15:44:22,382 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:22
+2023-05-14 15:44:22,387 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:22
+2023-05-14 15:44:22,389 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:22
+2023-05-14 15:44:22,393 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:22
+2023-05-14 15:44:22,396 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:22
+2023-05-14 15:44:22,397 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:22
+2023-05-14 15:44:22,456 fail2ban.actions        [1074]: NOTICE  [sshd] Ban 192.168.64.30
+2023-05-14 15:44:22,459 fail2ban.utils          [1074]: ERROR   ffffbb95f710 -- exec: iptables -w -N f2b-sshd
+iptables -w -A f2b-sshd -j RETURN
+iptables -w -I INPUT -p tcp -m multiport --dports ssh -j f2b-sshd
+2023-05-14 15:44:22,460 fail2ban.utils          [1074]: ERROR   ffffbb95f710 -- stderr: '/bin/sh: 1: iptables: not found'
+2023-05-14 15:44:22,460 fail2ban.utils          [1074]: ERROR   ffffbb95f710 -- stderr: '/bin/sh: 2: iptables: not found'
+2023-05-14 15:44:22,460 fail2ban.utils          [1074]: ERROR   ffffbb95f710 -- stderr: '/bin/sh: 3: iptables: not found'
+2023-05-14 15:44:22,460 fail2ban.utils          [1074]: ERROR   ffffbb95f710 -- returned 127
+2023-05-14 15:44:22,460 fail2ban.utils          [1074]: INFO    HINT on 127: "Command not found".  Make sure that all commands in 'iptables -w -N f2b-sshd\niptables -w -A f2b-sshd -j RETURN\niptables -w -I INPUT -p tcp -m multiport --dports ssh -j f2b-sshd' are in the PATH of fail2ban-server process (grep -a PATH= /proc/`pidof -x fail2ban-server`/environ). You may want to start "fail2ban-server -f" separately, initiate it with "fail2ban-client reload" in another shell session and observe if additional informative error messages appear in the terminals.
+2023-05-14 15:44:22,460 fail2ban.actions        [1074]: ERROR   Failed to execute ban jail 'sshd' action 'iptables-multiport' info 'ActionInfo({'ip': '192.168.64.30', 'family': 'inet4', 'fid': <function Actions.ActionInfo.<lambda> at 0xffffbb0bfb80>, 'raw-ticket': <function Actions.ActionInfo.<lambda> at 0xffffbb0c0280>})': Error starting action Jail('sshd')/iptables-multiport: 'Script error'
+2023-05-14 15:44:26,439 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:26
+2023-05-14 15:44:26,469 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:26
+2023-05-14 15:44:26,470 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:26
+2023-05-14 15:44:26,498 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:26
+2023-05-14 15:44:26,505 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:26
+2023-05-14 15:44:26,507 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:26
+2023-05-14 15:44:26,509 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:26
+2023-05-14 15:44:26,513 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:26
+2023-05-14 15:44:26,513 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:26
+2023-05-14 15:44:26,514 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:26
+2023-05-14 15:44:26,514 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:26
+2023-05-14 15:44:26,517 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:26
+2023-05-14 15:44:26,522 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:26
+2023-05-14 15:44:26,522 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:26
+2023-05-14 15:44:26,524 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:26
+2023-05-14 15:44:26,662 fail2ban.actions        [1074]: NOTICE  [sshd] 192.168.64.30 already banned
+2023-05-14 15:44:26,662 fail2ban.actions        [1074]: NOTICE  [sshd] 192.168.64.30 already banned
+2023-05-14 15:44:26,662 fail2ban.actions        [1074]: NOTICE  [sshd] 192.168.64.30 already banned
+2023-05-14 15:44:29,950 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:29
+2023-05-14 15:44:29,965 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:29
+2023-05-14 15:44:29,989 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:29
+2023-05-14 15:44:29,991 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:29
+2023-05-14 15:44:29,993 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:29
+2023-05-14 15:44:30,001 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:30
+2023-05-14 15:44:30,014 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:30
+2023-05-14 15:44:30,025 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:30
+2023-05-14 15:44:30,029 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:30
+2023-05-14 15:44:30,029 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:30
+2023-05-14 15:44:30,029 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:30
+2023-05-14 15:44:30,029 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:30
+2023-05-14 15:44:30,033 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:30
+2023-05-14 15:44:30,035 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:30
+2023-05-14 15:44:30,039 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:30
+2023-05-14 15:44:30,668 fail2ban.actions        [1074]: NOTICE  [sshd] 192.168.64.30 already banned
+2023-05-14 15:44:30,668 fail2ban.actions        [1074]: NOTICE  [sshd] 192.168.64.30 already banned
+2023-05-14 15:44:30,668 fail2ban.actions        [1074]: NOTICE  [sshd] 192.168.64.30 already banned
+2023-05-14 15:44:32,740 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:32
+2023-05-14 15:44:32,741 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:32
+2023-05-14 15:44:32,741 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:32
+2023-05-14 15:44:32,741 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:32
+2023-05-14 15:44:32,741 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:32
+2023-05-14 15:44:32,741 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:32
+2023-05-14 15:44:32,741 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:32
+2023-05-14 15:44:32,741 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:32
+2023-05-14 15:44:32,741 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:32
+2023-05-14 15:44:32,742 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:32
+2023-05-14 15:44:32,742 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:32
+2023-05-14 15:44:32,742 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:32
+2023-05-14 15:44:32,742 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:32
+2023-05-14 15:44:32,742 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:32
+2023-05-14 15:44:32,742 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:32
+2023-05-14 15:44:32,873 fail2ban.actions        [1074]: NOTICE  [sshd] 192.168.64.30 already banned
+2023-05-14 15:44:32,873 fail2ban.actions        [1074]: NOTICE  [sshd] 192.168.64.30 already banned
+2023-05-14 15:44:32,873 fail2ban.actions        [1074]: NOTICE  [sshd] 192.168.64.30 already banned
+2023-05-14 15:44:34,343 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:34
+2023-05-14 15:44:34,343 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:34
+2023-05-14 15:44:34,344 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:34
+2023-05-14 15:44:34,344 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:34
+2023-05-14 15:44:34,344 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:34
+2023-05-14 15:44:34,344 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:34
+2023-05-14 15:44:34,344 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:34
+2023-05-14 15:44:34,349 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:34
+2023-05-14 15:44:34,349 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:34
+2023-05-14 15:44:34,349 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:34
+2023-05-14 15:44:34,349 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:34
+2023-05-14 15:44:34,349 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:34
+2023-05-14 15:44:34,878 fail2ban.actions        [1074]: NOTICE  [sshd] 192.168.64.30 already banned
+2023-05-14 15:44:34,878 fail2ban.actions        [1074]: NOTICE  [sshd] 192.168.64.30 already banned
+2023-05-14 15:44:35,953 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:35
+2023-05-14 15:44:35,953 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:35
+2023-05-14 15:44:35,953 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:35
+2023-05-14 15:44:35,953 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:35
+2023-05-14 15:44:35,954 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:35
+2023-05-14 15:44:35,954 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:35
+2023-05-14 15:44:35,954 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:35
+2023-05-14 15:44:35,955 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:35
+2023-05-14 15:44:35,955 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:35
+2023-05-14 15:44:35,955 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:35
+2023-05-14 15:44:35,955 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:35
+2023-05-14 15:44:35,955 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:35
+2023-05-14 15:44:35,956 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:35
+2023-05-14 15:44:35,956 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:35
+2023-05-14 15:44:35,956 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:35
+2023-05-14 15:44:36,080 fail2ban.actions        [1074]: NOTICE  [sshd] 192.168.64.30 already banned
+2023-05-14 15:44:36,080 fail2ban.actions        [1074]: NOTICE  [sshd] 192.168.64.30 already banned
+2023-05-14 15:44:36,080 fail2ban.actions        [1074]: NOTICE  [sshd] 192.168.64.30 already banned
+2023-05-14 15:44:36,191 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:36
+2023-05-14 15:44:36,206 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:36
+2023-05-14 15:44:36,219 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:36
+2023-05-14 15:44:36,231 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:36
+2023-05-14 15:44:36,252 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:36
+2023-05-14 15:44:36,254 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:36
+2023-05-14 15:44:36,264 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:36
+2023-05-14 15:44:36,275 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:36
+2023-05-14 15:44:36,276 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:36
+2023-05-14 15:44:36,280 fail2ban.actions        [1074]: NOTICE  [sshd] 192.168.64.30 already banned
+2023-05-14 15:44:36,280 fail2ban.actions        [1074]: NOTICE  [sshd] 192.168.64.30 already banned
+2023-05-14 15:44:36,286 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:36
+2023-05-14 15:44:36,286 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:36
+2023-05-14 15:44:36,296 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:36
+2023-05-14 15:44:38,358 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:38
+2023-05-14 15:44:38,382 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:38
+2023-05-14 15:44:38,393 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:38
+2023-05-14 15:44:38,486 fail2ban.actions        [1074]: NOTICE  [sshd] 192.168.64.30 already banned
+2023-05-14 15:44:40,204 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:40
+2023-05-14 15:44:40,226 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:40
+2023-05-14 15:44:40,238 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:44:40
+2023-05-14 15:44:40,488 fail2ban.actions        [1074]: NOTICE  [sshd] 192.168.64.30 already banned
+2023-05-14 15:45:08,568 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:08
+2023-05-14 15:45:08,585 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:08
+2023-05-14 15:45:08,592 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:08
+2023-05-14 15:45:08,606 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:08
+2023-05-14 15:45:08,609 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:08
+2023-05-14 15:45:08,627 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:08
+2023-05-14 15:45:08,628 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:08
+2023-05-14 15:45:08,655 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:08
+2023-05-14 15:45:08,658 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:08
+2023-05-14 15:45:08,673 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:08
+2023-05-14 15:45:08,678 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:08
+2023-05-14 15:45:08,745 fail2ban.actions        [1074]: NOTICE  [sshd] 192.168.64.30 already banned
+2023-05-14 15:45:08,745 fail2ban.actions        [1074]: NOTICE  [sshd] 192.168.64.30 already banned
+2023-05-14 15:45:08,917 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:08
+2023-05-14 15:45:10,519 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:10
+2023-05-14 15:45:10,546 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:10
+2023-05-14 15:45:10,570 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:10
+2023-05-14 15:45:10,754 fail2ban.actions        [1074]: NOTICE  [sshd] 192.168.64.30 already banned
+2023-05-14 15:45:11,738 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:11
+2023-05-14 15:45:11,752 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:11
+2023-05-14 15:45:11,764 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:11
+2023-05-14 15:45:11,780 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:11
+2023-05-14 15:45:11,790 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:11
+2023-05-14 15:45:11,802 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:11
+2023-05-14 15:45:11,803 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:11
+2023-05-14 15:45:11,828 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:11
+2023-05-14 15:45:11,829 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:11
+2023-05-14 15:45:11,845 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:11
+2023-05-14 15:45:11,858 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:11
+2023-05-14 15:45:11,959 fail2ban.actions        [1074]: NOTICE  [sshd] 192.168.64.30 already banned
+2023-05-14 15:45:11,959 fail2ban.actions        [1074]: NOTICE  [sshd] 192.168.64.30 already banned
+2023-05-14 15:45:12,093 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:12
+2023-05-14 15:45:13,990 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:13
+2023-05-14 15:45:14,009 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:14
+2023-05-14 15:45:14,021 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:14
+2023-05-14 15:45:14,033 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:14
+2023-05-14 15:45:14,045 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:14
+2023-05-14 15:45:14,063 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:14
+2023-05-14 15:45:14,068 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:14
+2023-05-14 15:45:14,073 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:14
+2023-05-14 15:45:14,078 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:14
+2023-05-14 15:45:14,081 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:14
+2023-05-14 15:45:14,092 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:14
+2023-05-14 15:45:14,092 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:14
+2023-05-14 15:45:14,102 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:14
+2023-05-14 15:45:14,114 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:14
+2023-05-14 15:45:14,166 fail2ban.actions        [1074]: NOTICE  [sshd] 192.168.64.30 already banned
+2023-05-14 15:45:14,166 fail2ban.actions        [1074]: NOTICE  [sshd] 192.168.64.30 already banned
+2023-05-14 15:45:14,166 fail2ban.actions        [1074]: NOTICE  [sshd] 192.168.64.30 already banned
+2023-05-14 15:45:14,349 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:14
+2023-05-14 15:45:17,053 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:16
+2023-05-14 15:45:17,053 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:16
+2023-05-14 15:45:17,053 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:16
+2023-05-14 15:45:17,053 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:16
+2023-05-14 15:45:17,053 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:16
+2023-05-14 15:45:17,053 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:16
+2023-05-14 15:45:17,053 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:16
+2023-05-14 15:45:17,054 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:16
+2023-05-14 15:45:17,054 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:16
+2023-05-14 15:45:17,054 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:17
+2023-05-14 15:45:17,054 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:17
+2023-05-14 15:45:17,054 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:17
+2023-05-14 15:45:17,054 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:17
+2023-05-14 15:45:17,054 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:17
+2023-05-14 15:45:17,275 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:17
+2023-05-14 15:45:17,372 fail2ban.actions        [1074]: NOTICE  [sshd] 192.168.64.30 already banned
+2023-05-14 15:45:17,372 fail2ban.actions        [1074]: NOTICE  [sshd] 192.168.64.30 already banned
+2023-05-14 15:45:17,372 fail2ban.actions        [1074]: NOTICE  [sshd] 192.168.64.30 already banned
+2023-05-14 15:45:20,097 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:20
+2023-05-14 15:45:20,113 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:20
+2023-05-14 15:45:20,126 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:20
+2023-05-14 15:45:20,138 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:20
+2023-05-14 15:45:20,147 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:20
+2023-05-14 15:45:20,161 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:20
+2023-05-14 15:45:20,173 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:20
+2023-05-14 15:45:20,173 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:20
+2023-05-14 15:45:20,173 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:20
+2023-05-14 15:45:20,187 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:20
+2023-05-14 15:45:20,197 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:20
+2023-05-14 15:45:20,197 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:20
+2023-05-14 15:45:20,212 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:20
+2023-05-14 15:45:20,224 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:20
+2023-05-14 15:45:20,454 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:20
+2023-05-14 15:45:20,577 fail2ban.actions        [1074]: NOTICE  [sshd] 192.168.64.30 already banned
+2023-05-14 15:45:20,577 fail2ban.actions        [1074]: NOTICE  [sshd] 192.168.64.30 already banned
+2023-05-14 15:45:20,577 fail2ban.actions        [1074]: NOTICE  [sshd] 192.168.64.30 already banned
+2023-05-14 15:45:22,055 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:22
+2023-05-14 15:45:22,055 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:22
+2023-05-14 15:45:22,055 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:22
+2023-05-14 15:45:22,058 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:22
+2023-05-14 15:45:22,069 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:22
+2023-05-14 15:45:22,082 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:22
+2023-05-14 15:45:22,097 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:22
+2023-05-14 15:45:22,100 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:22
+2023-05-14 15:45:22,101 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:22
+2023-05-14 15:45:22,109 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:22
+2023-05-14 15:45:22,122 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:22
+2023-05-14 15:45:22,122 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:22
+2023-05-14 15:45:22,134 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:22
+2023-05-14 15:45:22,145 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:22
+2023-05-14 15:45:22,175 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:22
+2023-05-14 15:45:22,192 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:22
+2023-05-14 15:45:22,203 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:22
+2023-05-14 15:45:22,227 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:22
+2023-05-14 15:45:22,253 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:22
+2023-05-14 15:45:22,254 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:22
+2023-05-14 15:45:22,258 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:22
+2023-05-14 15:45:22,279 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:22
+2023-05-14 15:45:22,279 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:22
+2023-05-14 15:45:22,291 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:22
+2023-05-14 15:45:22,302 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:22
+2023-05-14 15:45:22,380 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:22
+2023-05-14 15:45:22,534 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:22
+2023-05-14 15:45:22,579 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:45:22,579 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:45:22,579 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:45:22,580 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:45:22,580 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:45:24,318 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:24
+2023-05-14 15:45:24,343 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:24
+2023-05-14 15:45:24,369 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:24
+2023-05-14 15:45:24,588 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:45:26,180 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:26
+2023-05-14 15:45:26,202 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:26
+2023-05-14 15:45:26,228 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:26
+2023-05-14 15:45:26,593 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:45:54,271 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:54
+2023-05-14 15:45:54,273 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:54
+2023-05-14 15:45:54,273 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:54
+2023-05-14 15:45:54,273 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:54
+2023-05-14 15:45:54,273 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:54
+2023-05-14 15:45:54,274 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:54
+2023-05-14 15:45:54,274 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:54
+2023-05-14 15:45:54,274 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:54
+2023-05-14 15:45:54,300 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:54
+2023-05-14 15:45:54,301 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:54
+2023-05-14 15:45:54,331 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:54
+2023-05-14 15:45:54,533 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:54
+2023-05-14 15:45:54,651 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:45:54,652 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:45:56,141 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:56
+2023-05-14 15:45:56,150 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:56
+2023-05-14 15:45:56,165 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:56
+2023-05-14 15:45:56,165 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:56
+2023-05-14 15:45:56,166 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:56
+2023-05-14 15:45:56,178 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:56
+2023-05-14 15:45:56,185 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:56
+2023-05-14 15:45:56,193 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:56
+2023-05-14 15:45:56,214 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:56
+2023-05-14 15:45:56,218 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:56
+2023-05-14 15:45:56,222 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:56
+2023-05-14 15:45:56,222 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:56
+2023-05-14 15:45:56,252 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:56
+2023-05-14 15:45:56,281 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:56
+2023-05-14 15:45:56,451 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:56
+2023-05-14 15:45:56,657 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:45:56,657 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:45:56,657 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:45:58,350 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:58
+2023-05-14 15:45:58,407 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:58
+2023-05-14 15:45:58,420 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:58
+2023-05-14 15:45:58,421 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:58
+2023-05-14 15:45:58,429 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:58
+2023-05-14 15:45:58,437 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:58
+2023-05-14 15:45:58,445 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:58
+2023-05-14 15:45:58,454 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:58
+2023-05-14 15:45:58,465 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:58
+2023-05-14 15:45:58,465 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:58
+2023-05-14 15:45:58,479 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:58
+2023-05-14 15:45:58,492 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:58
+2023-05-14 15:45:58,509 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:58
+2023-05-14 15:45:58,540 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:58
+2023-05-14 15:45:58,665 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:45:58,665 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:45:58,665 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:45:58,717 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:45:58
+2023-05-14 15:46:02,199 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:02
+2023-05-14 15:46:02,252 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:02
+2023-05-14 15:46:02,264 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:02
+2023-05-14 15:46:02,265 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:02
+2023-05-14 15:46:02,280 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:02
+2023-05-14 15:46:02,290 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:02
+2023-05-14 15:46:02,290 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:02
+2023-05-14 15:46:02,305 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:02
+2023-05-14 15:46:02,313 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:02
+2023-05-14 15:46:02,314 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:02
+2023-05-14 15:46:02,328 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:02
+2023-05-14 15:46:02,337 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:02
+2023-05-14 15:46:02,354 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:02
+2023-05-14 15:46:02,385 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:02
+2023-05-14 15:46:02,560 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:02
+2023-05-14 15:46:02,672 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:46:02,673 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:46:02,673 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:46:06,041 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:06
+2023-05-14 15:46:06,096 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:06
+2023-05-14 15:46:06,110 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:06
+2023-05-14 15:46:06,110 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:06
+2023-05-14 15:46:06,122 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:06
+2023-05-14 15:46:06,133 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:06
+2023-05-14 15:46:06,136 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:06
+2023-05-14 15:46:06,145 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:06
+2023-05-14 15:46:06,158 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:06
+2023-05-14 15:46:06,158 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:06
+2023-05-14 15:46:06,170 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:06
+2023-05-14 15:46:06,182 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:06
+2023-05-14 15:46:06,197 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:06
+2023-05-14 15:46:06,228 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:06
+2023-05-14 15:46:06,402 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:06
+2023-05-14 15:46:06,680 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:46:06,680 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:46:06,680 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:46:08,004 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:07
+2023-05-14 15:46:08,004 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:07
+2023-05-14 15:46:08,004 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:07
+2023-05-14 15:46:08,005 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:07
+2023-05-14 15:46:08,005 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:07
+2023-05-14 15:46:08,005 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:07
+2023-05-14 15:46:08,005 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:07
+2023-05-14 15:46:08,005 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:07
+2023-05-14 15:46:08,005 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:07
+2023-05-14 15:46:08,005 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:07
+2023-05-14 15:46:08,005 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:07
+2023-05-14 15:46:08,007 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:07
+2023-05-14 15:46:08,007 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:07
+2023-05-14 15:46:08,007 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:07
+2023-05-14 15:46:08,007 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:07
+2023-05-14 15:46:08,138 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:08
+2023-05-14 15:46:08,194 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:08
+2023-05-14 15:46:08,206 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:08
+2023-05-14 15:46:08,217 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:08
+2023-05-14 15:46:08,230 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:08
+2023-05-14 15:46:08,257 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:08
+2023-05-14 15:46:08,263 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:08
+2023-05-14 15:46:08,275 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:08
+2023-05-14 15:46:08,276 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:08
+2023-05-14 15:46:08,288 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:08
+2023-05-14 15:46:08,300 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:08
+2023-05-14 15:46:08,499 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:08
+2023-05-14 15:46:08,682 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:46:08,682 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:46:08,682 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:46:08,682 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:46:08,682 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:46:11,209 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:10
+2023-05-14 15:46:11,210 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:10
+2023-05-14 15:46:11,210 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:10
+2023-05-14 15:46:11,288 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:46:12,208 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:12
+2023-05-14 15:46:12,214 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:12
+2023-05-14 15:46:12,287 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:12
+2023-05-14 15:46:12,491 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:46:40,499 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:40
+2023-05-14 15:46:40,505 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:40
+2023-05-14 15:46:40,550 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:40
+2023-05-14 15:46:40,550 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:40
+2023-05-14 15:46:40,588 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:40
+2023-05-14 15:46:40,597 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:40
+2023-05-14 15:46:40,597 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:40
+2023-05-14 15:46:40,602 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:40
+2023-05-14 15:46:40,605 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:40
+2023-05-14 15:46:40,605 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:40
+2023-05-14 15:46:40,674 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:40
+2023-05-14 15:46:40,753 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:46:40,753 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:46:40,853 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:40
+2023-05-14 15:46:42,517 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:42
+2023-05-14 15:46:42,617 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:42
+2023-05-14 15:46:42,830 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:42
+2023-05-14 15:46:42,955 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:46:44,011 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:44
+2023-05-14 15:46:44,020 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:44
+2023-05-14 15:46:44,055 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:44
+2023-05-14 15:46:44,069 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:44
+2023-05-14 15:46:44,093 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:44
+2023-05-14 15:46:44,106 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:44
+2023-05-14 15:46:44,106 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:44
+2023-05-14 15:46:44,117 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:44
+2023-05-14 15:46:44,118 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:44
+2023-05-14 15:46:44,126 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:44
+2023-05-14 15:46:44,161 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:46:44,161 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:46:44,186 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:44
+2023-05-14 15:46:44,365 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:44
+2023-05-14 15:46:46,271 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:46
+2023-05-14 15:46:46,278 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:46
+2023-05-14 15:46:46,311 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:46
+2023-05-14 15:46:46,325 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:46
+2023-05-14 15:46:46,353 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:46
+2023-05-14 15:46:46,362 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:46:46,372 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:46
+2023-05-14 15:46:46,372 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:46
+2023-05-14 15:46:46,377 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:46
+2023-05-14 15:46:46,381 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:46
+2023-05-14 15:46:46,381 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:46
+2023-05-14 15:46:46,384 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:46
+2023-05-14 15:46:46,445 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:46
+2023-05-14 15:46:46,463 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:46
+2023-05-14 15:46:46,562 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:46:46,562 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:46:46,624 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:46
+2023-05-14 15:46:46,673 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:46
+2023-05-14 15:46:50,111 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:50
+2023-05-14 15:46:50,122 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:50
+2023-05-14 15:46:50,158 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:50
+2023-05-14 15:46:50,166 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:50
+2023-05-14 15:46:50,193 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:50
+2023-05-14 15:46:50,205 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:50
+2023-05-14 15:46:50,205 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:50
+2023-05-14 15:46:50,220 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:50
+2023-05-14 15:46:50,221 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:50
+2023-05-14 15:46:50,221 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:50
+2023-05-14 15:46:50,229 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:50
+2023-05-14 15:46:50,285 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:50
+2023-05-14 15:46:50,305 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:50
+2023-05-14 15:46:50,467 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:50
+2023-05-14 15:46:50,517 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:46:50
+2023-05-14 15:46:50,568 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:46:50,568 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:46:50,568 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:49:22,041 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:21
+2023-05-14 15:49:22,042 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:22
+2023-05-14 15:49:22,042 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:22
+2023-05-14 15:49:22,042 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:22
+2023-05-14 15:49:22,045 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:22
+2023-05-14 15:49:22,047 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:22
+2023-05-14 15:49:22,057 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:22
+2023-05-14 15:49:22,057 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:22
+2023-05-14 15:49:22,060 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:22
+2023-05-14 15:49:22,062 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:22
+2023-05-14 15:49:22,065 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:22
+2023-05-14 15:49:22,069 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:22
+2023-05-14 15:49:22,069 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:22
+2023-05-14 15:49:22,069 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:22
+2023-05-14 15:49:22,069 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:22
+2023-05-14 15:49:22,120 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:49:22,121 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:49:22,121 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:49:22,191 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:22
+2023-05-14 15:49:25,158 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:24
+2023-05-14 15:49:25,159 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:24
+2023-05-14 15:49:25,159 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:24
+2023-05-14 15:49:25,159 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:24
+2023-05-14 15:49:25,159 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:24
+2023-05-14 15:49:25,159 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:24
+2023-05-14 15:49:25,160 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:24
+2023-05-14 15:49:25,160 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:24
+2023-05-14 15:49:25,160 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:24
+2023-05-14 15:49:25,160 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:24
+2023-05-14 15:49:25,160 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:24
+2023-05-14 15:49:25,160 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:24
+2023-05-14 15:49:25,160 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:24
+2023-05-14 15:49:25,161 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:24
+2023-05-14 15:49:25,161 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:24
+2023-05-14 15:49:25,161 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:24
+2023-05-14 15:49:25,327 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:49:25,327 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:49:25,327 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:49:27,864 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:27
+2023-05-14 15:49:27,864 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:27
+2023-05-14 15:49:27,864 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:27
+2023-05-14 15:49:27,864 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:27
+2023-05-14 15:49:27,865 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:27
+2023-05-14 15:49:27,865 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:27
+2023-05-14 15:49:27,865 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:27
+2023-05-14 15:49:27,865 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:27
+2023-05-14 15:49:27,865 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:27
+2023-05-14 15:49:27,865 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:27
+2023-05-14 15:49:27,865 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:27
+2023-05-14 15:49:27,866 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:27
+2023-05-14 15:49:27,866 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:27
+2023-05-14 15:49:27,866 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:27
+2023-05-14 15:49:27,866 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:27
+2023-05-14 15:49:27,866 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:27
+2023-05-14 15:49:27,937 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:49:27,937 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:49:27,937 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:49:27,937 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:49:29,642 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:29
+2023-05-14 15:49:29,657 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:29
+2023-05-14 15:49:29,672 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:29
+2023-05-14 15:49:29,713 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:29
+2023-05-14 15:49:30,195 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:30
+2023-05-14 15:49:30,209 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:30
+2023-05-14 15:49:30,218 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:30
+2023-05-14 15:49:30,220 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:30
+2023-05-14 15:49:30,229 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:30
+2023-05-14 15:49:30,230 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:30
+2023-05-14 15:49:30,230 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:30
+2023-05-14 15:49:30,231 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:30
+2023-05-14 15:49:30,231 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:30
+2023-05-14 15:49:30,241 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:30
+2023-05-14 15:49:30,241 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:30
+2023-05-14 15:49:30,333 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:30
+2023-05-14 15:49:30,542 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:49:30,543 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:49:30,543 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:49:31,939 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:31
+2023-05-14 15:49:31,939 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:31
+2023-05-14 15:49:31,939 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:31
+2023-05-14 15:49:31,940 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:31
+2023-05-14 15:49:32,548 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:49:33,074 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:33
+2023-05-14 15:49:33,085 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:33
+2023-05-14 15:49:33,094 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:33
+2023-05-14 15:49:33,106 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:33
+2023-05-14 15:49:33,115 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:33
+2023-05-14 15:49:33,115 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:33
+2023-05-14 15:49:33,116 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:33
+2023-05-14 15:49:33,116 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:33
+2023-05-14 15:49:33,116 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:33
+2023-05-14 15:49:33,116 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:33
+2023-05-14 15:49:33,117 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:33
+2023-05-14 15:49:33,151 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:49:33,151 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:49:33,209 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:33
+2023-05-14 15:49:35,914 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:35
+2023-05-14 15:49:35,914 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:35
+2023-05-14 15:49:35,914 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:35
+2023-05-14 15:49:35,914 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:35
+2023-05-14 15:49:35,914 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:35
+2023-05-14 15:49:35,915 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:35
+2023-05-14 15:49:35,915 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:35
+2023-05-14 15:49:35,915 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:35
+2023-05-14 15:49:35,916 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:35
+2023-05-14 15:49:35,916 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:35
+2023-05-14 15:49:35,916 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:35
+2023-05-14 15:49:35,916 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:35
+2023-05-14 15:49:35,917 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:35
+2023-05-14 15:49:35,917 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:35
+2023-05-14 15:49:35,917 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:35
+2023-05-14 15:49:35,918 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:35
+2023-05-14 15:49:35,918 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:35
+2023-05-14 15:49:36,353 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:49:36,353 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:49:36,353 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:49:38,623 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:38
+2023-05-14 15:49:38,623 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:38
+2023-05-14 15:49:38,623 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:38
+2023-05-14 15:49:38,623 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:38
+2023-05-14 15:49:38,623 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:38
+2023-05-14 15:49:38,623 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:38
+2023-05-14 15:49:38,623 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:38
+2023-05-14 15:49:38,623 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:38
+2023-05-14 15:49:38,624 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:38
+2023-05-14 15:49:38,624 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:38
+2023-05-14 15:49:38,624 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:38
+2023-05-14 15:49:38,624 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:38
+2023-05-14 15:49:38,624 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:38
+2023-05-14 15:49:38,624 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:38
+2023-05-14 15:49:38,624 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:38
+2023-05-14 15:49:38,957 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:49:38,957 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:49:38,957 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:49:39,325 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:39
+2023-05-14 15:49:39,337 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:39
+2023-05-14 15:49:39,350 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:39
+2023-05-14 15:49:39,395 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:39
+2023-05-14 15:49:39,405 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:39
+2023-05-14 15:49:39,418 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:39
+2023-05-14 15:49:39,430 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:39
+2023-05-14 15:49:39,443 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:39
+2023-05-14 15:49:39,453 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:39
+2023-05-14 15:49:39,467 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:39
+2023-05-14 15:49:39,467 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:39
+2023-05-14 15:49:39,468 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:39
+2023-05-14 15:49:39,468 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:39
+2023-05-14 15:49:39,468 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:39
+2023-05-14 15:49:39,545 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:49:39
+2023-05-14 15:49:39,557 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:49:39,557 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:49:39,557 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:50:07,829 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:07
+2023-05-14 15:50:07,839 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:50:09,204 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:09
+2023-05-14 15:50:09,204 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:09
+2023-05-14 15:50:09,209 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:09
+2023-05-14 15:50:09,209 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:09
+2023-05-14 15:50:09,261 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:09
+2023-05-14 15:50:09,261 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:09
+2023-05-14 15:50:09,282 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:09
+2023-05-14 15:50:09,294 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:09
+2023-05-14 15:50:09,313 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:09
+2023-05-14 15:50:09,332 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:09
+2023-05-14 15:50:09,333 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:09
+2023-05-14 15:50:09,333 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:09
+2023-05-14 15:50:09,337 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:09
+2023-05-14 15:50:09,433 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:09
+2023-05-14 15:50:09,843 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:50:09,843 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:50:10,135 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:10
+2023-05-14 15:50:10,446 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:50:11,740 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:11
+2023-05-14 15:50:11,740 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:11
+2023-05-14 15:50:11,740 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:11
+2023-05-14 15:50:11,741 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:11
+2023-05-14 15:50:11,771 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:11
+2023-05-14 15:50:11,779 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:11
+2023-05-14 15:50:11,793 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:11
+2023-05-14 15:50:11,805 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:11
+2023-05-14 15:50:11,818 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:11
+2023-05-14 15:50:11,841 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:11
+2023-05-14 15:50:11,849 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:11
+2023-05-14 15:50:11,849 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:11
+2023-05-14 15:50:11,849 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:11
+2023-05-14 15:50:11,850 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:11
+2023-05-14 15:50:11,943 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:11
+2023-05-14 15:50:12,448 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:50:12,448 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:50:12,448 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:50:12,853 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:12
+2023-05-14 15:50:14,723 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:14
+2023-05-14 15:50:14,736 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:14
+2023-05-14 15:50:14,736 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:14
+2023-05-14 15:50:14,747 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:14
+2023-05-14 15:50:14,784 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:14
+2023-05-14 15:50:14,794 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:14
+2023-05-14 15:50:14,807 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:14
+2023-05-14 15:50:14,818 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:14
+2023-05-14 15:50:14,835 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:14
+2023-05-14 15:50:14,855 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:14
+2023-05-14 15:50:14,865 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:14
+2023-05-14 15:50:14,865 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:14
+2023-05-14 15:50:14,865 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:14
+2023-05-14 15:50:14,866 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:14
+2023-05-14 15:50:14,953 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:14
+2023-05-14 15:50:15,056 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:50:15,056 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:50:15,056 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:50:15,869 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:15
+2023-05-14 15:50:17,473 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:17
+2023-05-14 15:50:17,473 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:17
+2023-05-14 15:50:17,473 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:17
+2023-05-14 15:50:17,473 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:17
+2023-05-14 15:50:17,473 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:17
+2023-05-14 15:50:17,474 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:17
+2023-05-14 15:50:17,474 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:17
+2023-05-14 15:50:17,474 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:17
+2023-05-14 15:50:17,474 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:17
+2023-05-14 15:50:17,474 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:17
+2023-05-14 15:50:17,474 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:17
+2023-05-14 15:50:17,474 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:17
+2023-05-14 15:50:17,474 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:17
+2023-05-14 15:50:17,474 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:17
+2023-05-14 15:50:17,474 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:17
+2023-05-14 15:50:17,658 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:50:17,658 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:50:17,658 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:50:17,905 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:17
+2023-05-14 15:50:20,615 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:20
+2023-05-14 15:50:20,615 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:20
+2023-05-14 15:50:20,615 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:20
+2023-05-14 15:50:20,615 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:20
+2023-05-14 15:50:20,633 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:20
+2023-05-14 15:50:20,646 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:20
+2023-05-14 15:50:20,664 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:20
+2023-05-14 15:50:20,674 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:20
+2023-05-14 15:50:20,687 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:20
+2023-05-14 15:50:20,707 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:20
+2023-05-14 15:50:20,718 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:20
+2023-05-14 15:50:20,729 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:20
+2023-05-14 15:50:20,729 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:20
+2023-05-14 15:50:20,741 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:20
+2023-05-14 15:50:20,808 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:20
+2023-05-14 15:50:20,865 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:50:20,865 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:50:20,865 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:50:21,253 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:21
+2023-05-14 15:50:22,281 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:22
+2023-05-14 15:50:22,293 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:22
+2023-05-14 15:50:22,293 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:22
+2023-05-14 15:50:22,306 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:22
+2023-05-14 15:50:22,871 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:50:23,009 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:22
+2023-05-14 15:50:23,009 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:22
+2023-05-14 15:50:23,009 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:22
+2023-05-14 15:50:23,010 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:22
+2023-05-14 15:50:23,071 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:50:23,142 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:23
+2023-05-14 15:50:23,157 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:23
+2023-05-14 15:50:23,168 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:23
+2023-05-14 15:50:23,181 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:23
+2023-05-14 15:50:23,193 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:23
+2023-05-14 15:50:23,213 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:23
+2023-05-14 15:50:23,225 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:23
+2023-05-14 15:50:23,234 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:23
+2023-05-14 15:50:23,236 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:23
+2023-05-14 15:50:23,249 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:23
+2023-05-14 15:50:23,272 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:50:23,272 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:50:23,310 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:23
+2023-05-14 15:50:23,757 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:23
+2023-05-14 15:50:24,812 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:24
+2023-05-14 15:50:24,827 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:24
+2023-05-14 15:50:24,840 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:24
+2023-05-14 15:50:24,853 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:24
+2023-05-14 15:50:24,863 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:24
+2023-05-14 15:50:24,885 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:24
+2023-05-14 15:50:24,896 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:24
+2023-05-14 15:50:24,906 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:24
+2023-05-14 15:50:24,907 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:24
+2023-05-14 15:50:24,919 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:24
+2023-05-14 15:50:24,985 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:24
+2023-05-14 15:50:25,276 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:50:25,276 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:50:25,276 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:50:25,428 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:50:25
+2023-05-14 15:52:34,447 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:34
+2023-05-14 15:52:34,452 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:34
+2023-05-14 15:52:34,477 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:34
+2023-05-14 15:52:34,481 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:34
+2023-05-14 15:52:34,489 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:34
+2023-05-14 15:52:34,489 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:34
+2023-05-14 15:52:34,489 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:34
+2023-05-14 15:52:34,492 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:34
+2023-05-14 15:52:34,493 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:34
+2023-05-14 15:52:34,494 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:34
+2023-05-14 15:52:34,498 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:34
+2023-05-14 15:52:34,505 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:34
+2023-05-14 15:52:34,505 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:34
+2023-05-14 15:52:34,603 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:34
+2023-05-14 15:52:34,842 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:52:34,842 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:52:34,842 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:52:38,962 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:38
+2023-05-14 15:52:38,977 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:38
+2023-05-14 15:52:38,990 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:38
+2023-05-14 15:52:39,003 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:39
+2023-05-14 15:52:39,018 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:39
+2023-05-14 15:52:39,029 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:39
+2023-05-14 15:52:39,029 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:39
+2023-05-14 15:52:39,030 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:39
+2023-05-14 15:52:39,038 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:39
+2023-05-14 15:52:39,038 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:39
+2023-05-14 15:52:39,042 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:39
+2023-05-14 15:52:39,051 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:52:39,051 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:52:39,065 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:39
+2023-05-14 15:52:39,065 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:39
+2023-05-14 15:52:39,214 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:39
+2023-05-14 15:52:41,974 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:41
+2023-05-14 15:52:41,985 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:41
+2023-05-14 15:52:42,001 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:42
+2023-05-14 15:52:42,013 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:42
+2023-05-14 15:52:42,026 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:42
+2023-05-14 15:52:42,038 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:42
+2023-05-14 15:52:42,048 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:42
+2023-05-14 15:52:42,049 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:42
+2023-05-14 15:52:42,061 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:42
+2023-05-14 15:52:42,061 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:42
+2023-05-14 15:52:42,061 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:42
+2023-05-14 15:52:42,073 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:42
+2023-05-14 15:52:42,085 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:42
+2023-05-14 15:52:42,259 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:52:42,259 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:52:42,259 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:52:42,787 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:42
+2023-05-14 15:52:44,391 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:44
+2023-05-14 15:52:44,392 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:44
+2023-05-14 15:52:44,392 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:44
+2023-05-14 15:52:44,392 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:44
+2023-05-14 15:52:44,392 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:44
+2023-05-14 15:52:44,392 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:44
+2023-05-14 15:52:44,392 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:44
+2023-05-14 15:52:44,392 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:44
+2023-05-14 15:52:44,392 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:44
+2023-05-14 15:52:44,392 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:44
+2023-05-14 15:52:44,393 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:44
+2023-05-14 15:52:44,393 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:44
+2023-05-14 15:52:44,393 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:44
+2023-05-14 15:52:44,466 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:52:44,466 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:52:44,466 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:52:45,096 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:44
+2023-05-14 15:52:48,031 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:48
+2023-05-14 15:52:48,041 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:48
+2023-05-14 15:52:48,053 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:48
+2023-05-14 15:52:48,065 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:48
+2023-05-14 15:52:48,078 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:48
+2023-05-14 15:52:48,093 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:48
+2023-05-14 15:52:48,106 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:48
+2023-05-14 15:52:48,117 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:48
+2023-05-14 15:52:48,117 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:48
+2023-05-14 15:52:48,118 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:48
+2023-05-14 15:52:48,118 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:48
+2023-05-14 15:52:48,129 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:48
+2023-05-14 15:52:48,142 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:48
+2023-05-14 15:52:48,479 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:52:48,479 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:52:48,479 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:52:48,612 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:48
+2023-05-14 15:52:51,378 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:51
+2023-05-14 15:52:51,389 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:51
+2023-05-14 15:52:51,399 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:51
+2023-05-14 15:52:51,411 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:51
+2023-05-14 15:52:51,426 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:51
+2023-05-14 15:52:51,443 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:51
+2023-05-14 15:52:51,454 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:51
+2023-05-14 15:52:51,463 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:51
+2023-05-14 15:52:51,463 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:51
+2023-05-14 15:52:51,463 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:51
+2023-05-14 15:52:51,464 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:51
+2023-05-14 15:52:51,474 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:51
+2023-05-14 15:52:51,488 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:51
+2023-05-14 15:52:51,494 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:51
+2023-05-14 15:52:51,682 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:52:51,682 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:52:51,683 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:52:52,301 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:52
+2023-05-14 15:52:53,225 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:53
+2023-05-14 15:52:53,238 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:53
+2023-05-14 15:52:53,250 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:53
+2023-05-14 15:52:53,266 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:53
+2023-05-14 15:52:53,281 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:53
+2023-05-14 15:52:53,292 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:53
+2023-05-14 15:52:53,303 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:53
+2023-05-14 15:52:53,303 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:53
+2023-05-14 15:52:53,304 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:53
+2023-05-14 15:52:53,304 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:53
+2023-05-14 15:52:53,313 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:53
+2023-05-14 15:52:53,326 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:53
+2023-05-14 15:52:53,406 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:53
+2023-05-14 15:52:53,419 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:53
+2023-05-14 15:52:53,431 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:53
+2023-05-14 15:52:53,445 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:53
+2023-05-14 15:52:53,461 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:53
+2023-05-14 15:52:53,473 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:53
+2023-05-14 15:52:53,486 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:53
+2023-05-14 15:52:53,486 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:53
+2023-05-14 15:52:53,486 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:53
+2023-05-14 15:52:53,487 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:53
+2023-05-14 15:52:53,494 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:53
+2023-05-14 15:52:53,507 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:53
+2023-05-14 15:52:53,689 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:52:53,689 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:52:53,689 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:52:53,689 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:52:53,689 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:52:56,329 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:56
+2023-05-14 15:52:57,993 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:52:57
+2023-05-14 15:53:23,574 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:53:23
+2023-05-14 15:53:26,451 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:53:26
+2023-05-14 15:53:26,451 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:53:26
+2023-05-14 15:53:26,451 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:53:26
+2023-05-14 15:53:26,451 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:53:26
+2023-05-14 15:53:26,452 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:53:26
+2023-05-14 15:53:26,452 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:53:26
+2023-05-14 15:53:26,452 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:53:26
+2023-05-14 15:53:26,452 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:53:26
+2023-05-14 15:53:26,452 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:53:26
+2023-05-14 15:53:26,452 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:53:26
+2023-05-14 15:53:26,452 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:53:26
+2023-05-14 15:53:26,452 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:53:26
+2023-05-14 15:53:26,453 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:53:26
+2023-05-14 15:53:26,952 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:53:26,952 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:53:26,952 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:53:29,265 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:53:28
+2023-05-14 15:53:29,428 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:53:29
+2023-05-14 15:53:29,442 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:53:29
+2023-05-14 15:53:29,451 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:53:29
+2023-05-14 15:53:29,452 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:53:29
+2023-05-14 15:53:29,463 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:53:29
+2023-05-14 15:53:29,486 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:53:29
+2023-05-14 15:53:29,497 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:53:29
+2023-05-14 15:53:29,497 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:53:29
+2023-05-14 15:53:29,497 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:53:29
+2023-05-14 15:53:29,509 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:53:29
+2023-05-14 15:53:29,509 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:53:29
+2023-05-14 15:53:29,522 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:53:29
+2023-05-14 15:53:29,534 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:53:29
+2023-05-14 15:53:29,555 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:53:29,555 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:53:29,555 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:53:33,101 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:53:33
+2023-05-14 15:53:33,443 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:53:33
+2023-05-14 15:53:33,454 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:53:33
+2023-05-14 15:53:33,469 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:53:33
+2023-05-14 15:53:33,469 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:53:33
+2023-05-14 15:53:33,482 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:53:33
+2023-05-14 15:53:33,498 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:53:33
+2023-05-14 15:53:33,509 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:53:33
+2023-05-14 15:53:33,510 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:53:33
+2023-05-14 15:53:33,522 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:53:33
+2023-05-14 15:53:33,535 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:53:33
+2023-05-14 15:53:33,535 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:53:33
+2023-05-14 15:53:33,546 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:53:33
+2023-05-14 15:53:33,548 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:53:33
+2023-05-14 15:53:33,565 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:53:33,565 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:53:36,254 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:53:36
+2023-05-14 15:53:36,770 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:53:37,454 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:53:37
+2023-05-14 15:53:37,469 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:53:37
+2023-05-14 15:53:37,481 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:53:37
+2023-05-14 15:53:37,493 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:53:37
+2023-05-14 15:53:37,493 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:53:37
+2023-05-14 15:53:37,514 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:53:37
+2023-05-14 15:53:37,522 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:53:37
+2023-05-14 15:53:37,523 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:53:37
+2023-05-14 15:53:37,538 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:53:37
+2023-05-14 15:53:37,549 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:53:37
+2023-05-14 15:53:37,549 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:53:37
+2023-05-14 15:53:37,561 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:53:37
+2023-05-14 15:53:37,561 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:53:37
+2023-05-14 15:53:37,970 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:53:37,970 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:53:40,276 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:53:39
+2023-05-14 15:53:40,994 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:53:40
+2023-05-14 15:53:41,009 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:53:41
+2023-05-14 15:53:41,022 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:53:41
+2023-05-14 15:53:41,034 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:53:41
+2023-05-14 15:53:41,046 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:53:41
+2023-05-14 15:53:41,062 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:53:41
+2023-05-14 15:53:41,071 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:53:41
+2023-05-14 15:53:41,073 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:53:41
+2023-05-14 15:53:41,086 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:53:41
+2023-05-14 15:53:41,094 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:53:41
+2023-05-14 15:53:41,095 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:53:41
+2023-05-14 15:53:41,107 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:53:41
+2023-05-14 15:53:41,109 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:53:41
+2023-05-14 15:53:41,175 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:53:41,175 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:53:41,175 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:53:42,624 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:53:42
+2023-05-14 15:55:17,994 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:17
+2023-05-14 15:55:17,997 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:17
+2023-05-14 15:55:18,002 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:17
+2023-05-14 15:55:18,002 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:17
+2023-05-14 15:55:18,002 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:17
+2023-05-14 15:55:18,002 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:18
+2023-05-14 15:55:18,002 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:18
+2023-05-14 15:55:18,003 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:18
+2023-05-14 15:55:18,010 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:18
+2023-05-14 15:55:18,013 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:18
+2023-05-14 15:55:18,013 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:18
+2023-05-14 15:55:18,145 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:18
+2023-05-14 15:55:18,622 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:55:18,622 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:55:18,622 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:55:21,498 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:21
+2023-05-14 15:55:21,499 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:21
+2023-05-14 15:55:21,505 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:21
+2023-05-14 15:55:21,517 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:21
+2023-05-14 15:55:21,541 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:21
+2023-05-14 15:55:21,546 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:21
+2023-05-14 15:55:21,553 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:21
+2023-05-14 15:55:21,553 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:21
+2023-05-14 15:55:21,553 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:21
+2023-05-14 15:55:21,561 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:21
+2023-05-14 15:55:21,589 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:21
+2023-05-14 15:55:21,597 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:21
+2023-05-14 15:55:21,828 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:55:21,828 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:55:23,669 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:23
+2023-05-14 15:55:23,679 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:23
+2023-05-14 15:55:23,693 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:23
+2023-05-14 15:55:23,706 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:23
+2023-05-14 15:55:23,718 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:23
+2023-05-14 15:55:23,730 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:23
+2023-05-14 15:55:23,737 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:23
+2023-05-14 15:55:23,737 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:23
+2023-05-14 15:55:23,737 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:23
+2023-05-14 15:55:23,738 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:23
+2023-05-14 15:55:23,763 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:23
+2023-05-14 15:55:23,773 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:23
+2023-05-14 15:55:23,833 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:55:23,833 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:55:27,346 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:27
+2023-05-14 15:55:27,357 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:27
+2023-05-14 15:55:27,370 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:27
+2023-05-14 15:55:27,381 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:27
+2023-05-14 15:55:27,393 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:27
+2023-05-14 15:55:27,405 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:27
+2023-05-14 15:55:27,416 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:27
+2023-05-14 15:55:27,417 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:27
+2023-05-14 15:55:27,427 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:27
+2023-05-14 15:55:27,427 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:27
+2023-05-14 15:55:27,441 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:27
+2023-05-14 15:55:27,453 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:27
+2023-05-14 15:55:27,841 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:55:27,841 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:55:27,841 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:55:29,525 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:29
+2023-05-14 15:55:29,533 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:29
+2023-05-14 15:55:29,545 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:29
+2023-05-14 15:55:29,557 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:29
+2023-05-14 15:55:29,570 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:29
+2023-05-14 15:55:29,582 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:29
+2023-05-14 15:55:29,590 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:29
+2023-05-14 15:55:29,590 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:29
+2023-05-14 15:55:29,602 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:29
+2023-05-14 15:55:29,602 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:29
+2023-05-14 15:55:29,617 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:29
+2023-05-14 15:55:29,629 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:29
+2023-05-14 15:55:29,842 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:55:29,842 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:55:32,537 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:32
+2023-05-14 15:55:32,546 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:32
+2023-05-14 15:55:32,559 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:32
+2023-05-14 15:55:32,571 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:32
+2023-05-14 15:55:32,583 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:32
+2023-05-14 15:55:32,594 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:32
+2023-05-14 15:55:32,609 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:32
+2023-05-14 15:55:32,617 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:32
+2023-05-14 15:55:32,625 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:32
+2023-05-14 15:55:32,625 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:32
+2023-05-14 15:55:32,637 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:32
+2023-05-14 15:55:32,647 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:32
+2023-05-14 15:55:33,045 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:55:33,046 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:55:33,046 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:55:33,083 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:33
+2023-05-14 15:55:35,052 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:35
+2023-05-14 15:55:35,065 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:35
+2023-05-14 15:55:35,077 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:35
+2023-05-14 15:55:35,089 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:35
+2023-05-14 15:55:35,101 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:35
+2023-05-14 15:55:35,113 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:35
+2023-05-14 15:55:35,122 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:35
+2023-05-14 15:55:35,132 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:35
+2023-05-14 15:55:35,133 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:35
+2023-05-14 15:55:35,144 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:35
+2023-05-14 15:55:35,157 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:35
+2023-05-14 15:55:35,250 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:55:35,250 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:55:36,891 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:36
+2023-05-14 15:55:36,903 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:36
+2023-05-14 15:55:36,915 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:36
+2023-05-14 15:55:36,927 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:36
+2023-05-14 15:55:36,939 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:36
+2023-05-14 15:55:36,950 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:36
+2023-05-14 15:55:36,959 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:36
+2023-05-14 15:55:36,970 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:36
+2023-05-14 15:55:36,970 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:36
+2023-05-14 15:55:36,980 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:36
+2023-05-14 15:55:36,994 fail2ban.filter         [1074]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 15:55:36
+2023-05-14 15:55:37,254 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:55:37,254 fail2ban.actions        [1074]: WARNING [sshd] 192.168.64.30 already banned
+2023-05-14 15:59:36,372 fail2ban.server         [1074]: INFO    Shutdown in progress...
+2023-05-14 15:59:36,373 fail2ban.observer       [1074]: INFO    Observer stop ... try to end queue 5 seconds
+2023-05-14 15:59:36,394 fail2ban.observer       [1074]: INFO    Observer stopped, 0 events remaining.
+2023-05-14 15:59:36,437 fail2ban.server         [1074]: INFO    Stopping all jails
+2023-05-14 15:59:36,437 fail2ban.filter         [1074]: INFO    Removed logfile: '/var/log/auth.log'
+2023-05-14 15:59:36,976 fail2ban.actions        [1074]: NOTICE  [sshd] Flush ticket(s) with iptables-multiport
+2023-05-14 15:59:36,976 fail2ban.actions        [1074]: NOTICE  [sshd] Unban 192.168.64.30
+2023-05-14 15:59:37,040 fail2ban.jail           [1074]: INFO    Jail 'sshd' stopped
+2023-05-14 15:59:37,040 fail2ban.database       [1074]: INFO    Connection to database closed.
+2023-05-14 15:59:37,040 fail2ban.server         [1074]: INFO    Exiting Fail2ban
+2023-05-14 15:59:37,088 fail2ban.server         [2144]: INFO    --------------------------------------------------
+2023-05-14 15:59:37,088 fail2ban.server         [2144]: INFO    Starting Fail2ban v0.11.2
+2023-05-14 15:59:37,088 fail2ban.observer       [2144]: INFO    Observer start...
+2023-05-14 15:59:37,090 fail2ban.database       [2144]: INFO    Connected to fail2ban persistent database '/var/lib/fail2ban/fail2ban.sqlite3'
+2023-05-14 15:59:37,090 fail2ban.jail           [2144]: INFO    Creating new jail 'sshd'
+2023-05-14 15:59:37,093 fail2ban.jail           [2144]: INFO    Jail 'sshd' uses pyinotify {}
+2023-05-14 15:59:37,094 fail2ban.jail           [2144]: INFO    Initiated 'pyinotify' backend
+2023-05-14 15:59:37,095 fail2ban.filter         [2144]: INFO      maxLines: 1
+2023-05-14 15:59:37,102 fail2ban.filter         [2144]: INFO      maxRetry: 5
+2023-05-14 15:59:37,102 fail2ban.filter         [2144]: INFO      findtime: 600
+2023-05-14 15:59:37,102 fail2ban.actions        [2144]: INFO      banTime: 600
+2023-05-14 15:59:37,102 fail2ban.filter         [2144]: INFO      encoding: UTF-8
+2023-05-14 15:59:37,102 fail2ban.filter         [2144]: INFO    Added logfile: '/var/log/auth.log' (pos = 184900, hash = b7c52f0df1652af6dd1cef1d663468cd72896b88)
+2023-05-14 15:59:37,103 fail2ban.jail           [2144]: INFO    Jail 'sshd' started
+2023-05-14 16:00:18,421 fail2ban.filter         [2144]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 16:00:18
+2023-05-14 16:00:18,421 fail2ban.filter         [2144]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 16:00:18
+2023-05-14 16:00:18,422 fail2ban.filter         [2144]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 16:00:18
+2023-05-14 16:00:18,422 fail2ban.filter         [2144]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 16:00:18
+2023-05-14 16:00:18,428 fail2ban.filter         [2144]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 16:00:18
+2023-05-14 16:00:18,428 fail2ban.filter         [2144]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 16:00:18
+2023-05-14 16:00:18,434 fail2ban.filter         [2144]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 16:00:18
+2023-05-14 16:00:18,434 fail2ban.filter         [2144]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 16:00:18
+2023-05-14 16:00:18,436 fail2ban.filter         [2144]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 16:00:18
+2023-05-14 16:00:18,441 fail2ban.filter         [2144]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 16:00:18
+2023-05-14 16:00:18,446 fail2ban.filter         [2144]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 16:00:18
+2023-05-14 16:00:18,575 fail2ban.filter         [2144]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 16:00:18
+2023-05-14 16:00:19,207 fail2ban.actions        [2144]: NOTICE  [sshd] Ban 192.168.64.30
+2023-05-14 16:00:21,403 fail2ban.filter         [2144]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 16:00:21
+2023-05-14 16:00:21,403 fail2ban.filter         [2144]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 16:00:21
+2023-05-14 16:00:21,404 fail2ban.filter         [2144]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 16:00:21
+2023-05-14 16:00:21,404 fail2ban.filter         [2144]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 16:00:21
+2023-05-14 16:00:21,404 fail2ban.filter         [2144]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 16:00:21
+2023-05-14 16:00:21,404 fail2ban.filter         [2144]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 16:00:21
+2023-05-14 16:00:21,417 fail2ban.filter         [2144]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 16:00:21
+2023-05-14 16:00:21,429 fail2ban.filter         [2144]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 16:00:21
+2023-05-14 16:00:21,433 fail2ban.filter         [2144]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 16:00:21
+2023-05-14 16:00:21,433 fail2ban.filter         [2144]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 16:00:21
+2023-05-14 16:00:21,446 fail2ban.filter         [2144]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 16:00:21
+2023-05-14 16:00:21,453 fail2ban.filter         [2144]: INFO    [sshd] Found 192.168.64.30 - 2023-05-14 16:00:21
+2023-05-14 16:00:21,476 fail2ban.actions        [2144]: NOTICE  [sshd] 192.168.64.30 already banned
+2023-05-14 16:00:21,476 fail2ban.actions        [2144]: NOTICE  [sshd] 192.168.64.30 already banned
+2023-05-14 16:10:21,244 fail2ban.actions        [2144]: NOTICE  [sshd] Unban 192.168.64.30
+2023-05-14 16:15:28,595 fail2ban.filter         [2144]: INFO    [sshd] Found 192.168.64.1 - 2023-05-14 16:15:28
